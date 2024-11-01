@@ -10,6 +10,7 @@ The dataset includes 14 conditions:
 This multi-label classification problem requires the model to recognize multiple conditions in a single X-ray, where conditions can co-exist.
 
 ## Data Preparation and Preprocessing
+<img width="988" alt="image" src="https://github.com/user-attachments/assets/b0a714df-aab9-4ea1-b9cc-7d12f640544f">
 
 - **Data Selection:** Used only images and labels for disease prediction, excluding irrelevant metadata (age, gender, view position).
 - **Label Filtering:** Removed unreliable "No Finding" labels to focus on pathologies.
@@ -24,6 +25,8 @@ This multi-label classification problem requires the model to recognize multiple
    - Random horizontal flip (50% probability).
    - Normalization to standardize image pixel values.
 4. **Class Weights**: Calculated class weights for loss function balancing, using BCEWithLogitsLoss with a sigmoid activation function.
+   
+<img width="942" alt="image" src="https://github.com/user-attachments/assets/96c5aed6-312c-4027-aedd-45b28cdc1b07">
 
 ## Model Selection and Development
 
@@ -40,12 +43,8 @@ Four models were evaluated for their multi-label classification effectiveness:
 
 ## Evaluation and Performance Metrics
 
-| Model       | Epoch | Train Loss | Train Acc | Val AUC | Val Acc |
-|-------------|-------|------------|-----------|---------|---------|
-| ResNet50    | 10/10 | 0.4362     | 0.92      | 0.9154  | 0.93    |
-| VGG16       |  7/10 | 0.7471     | 0.89      | 0.7711  | 0.89    |
-| DenseNet121 | 10/10 | 0.1635     | 0.96      | 0.9648  | 0.96    |
-| ViT         |  4/10 | 2.1765     | 0.84      | 0.5823  | 0.84    |
+<img width="447" alt="image" src="https://github.com/user-attachments/assets/ef416fc2-aaa4-46cc-b765-912d89f8b266">
+
 
 - **DenseNet-121**: Best performer with balanced recall and precision, highest F1-score, and robust AUC and validation accuracy.
 - **ResNet50**: Strong generalization with consistent validation AUC and accuracy.
